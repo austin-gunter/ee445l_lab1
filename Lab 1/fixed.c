@@ -87,7 +87,7 @@ void ST7735_XYplotInit(char *title, int32_t minX, int32_t maxX, int32_t minY, in
 void ST7735_XYplot(uint32_t num, int32_t bufX[], int32_t bufY[]){
 	for(int i = 0; i < num; i++){
 		int16_t x = (((bufX[i] - x_min)*127))/(x_max - x_min);
-		int16_t y = 32 + (((bufY[i] - y_min)*127))/(y_max - y_min);
+		int16_t y = 32 + (((y_max - bufY[i])*127))/(y_max - y_min);
 		ST7735_DrawPixel(x, y, ST7735_BLUE);
 	}
 };
